@@ -13,5 +13,8 @@
     "bugs": {
         "url": "https://github.com/ggabarrin/noscript-tag-blocker/issues"
     },
-    "homepage": "https://github.com/ggabarrin/noscript-tag-blocker#readme"
+    "homepage": "https://github.com/ggabarrin/noscript-tag-blocker#readme",
+    "devDependencies": {
+        "prettier": "^2.0.5"
+    }
 }
