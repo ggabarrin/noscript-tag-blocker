@@ -1,0 +1,17 @@
+{
+    "name": "noscript-tag-blocker",
+    "private": true,
+    "version": "0.9",
+    "description": "Browser WebExtension for blocking <noscript> tags",
+    "scripts": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ggabarrin/noscript-tag-blocker.git"
+    },
+    "author": "",
+    "license": "UNLICENSED",
+    "bugs": {
+        "url": "https://github.com/ggabarrin/noscript-tag-blocker/issues"
+    },
+    "homepage": "https://github.com/ggabarrin/noscript-tag-blocker#readme"
+}
