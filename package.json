@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint --cache .",
     "lint:fix": "yarn lint --fix",
-    "build": "pwd; cp ./node_modules/webextension-polyfill/dist/browser-polyfill.js noscript-tag-blocker/browser-polyfill.js && web-ext build --source-dir=./noscript-tag-blocker/ --overwrite-dest --artifacts-dir=./noscript-tag-blocker/dist"
+    "build": "cp ./node_modules/webextension-polyfill/dist/browser-polyfill.js noscript-tag-blocker/browser-polyfill.js && web-ext build --source-dir=./noscript-tag-blocker/ --overwrite-dest --artifacts-dir=./noscript-tag-blocker/dist",
+    "test": "web-ext run --source-dir=./noscript-tag-blocker/"
   },
   "repository": {
     "type": "git",
