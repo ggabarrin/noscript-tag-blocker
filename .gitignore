@@ -60,5 +60,8 @@ typings/
 # next.js build output
 .next
 
-# webextension build directory
-web-ext-artifacts
+# dist build directory
+noscript-tag-blocker/dist
+
+# browser-polyfill.js
+noscript-tag-blocker/browser-polyfill.js
