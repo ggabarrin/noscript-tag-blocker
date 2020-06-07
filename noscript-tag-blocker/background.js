@@ -1,23 +1,26 @@
-function listener(details) {
-  let filter = browser.webRequest.filterResponseData(details.requestId);
-  let decoder = new TextDecoder("utf-8");
-  let encoder = new TextEncoder();
+async function listener(details) {
+  let enabled = await getEnabled();
+  if (enabled) {
+    let filter = browser.webRequest.filterResponseData(details.requestId);
+    let decoder = new TextDecoder("utf-8");
+    let encoder = new TextEncoder();
 
-  filter.onstart = event => {
-    // console.log("started");
-  }
+    filter.onstart = event => {
+      // console.log("started");
+    }
 
-  filter.ondata = event => {
-    // console.log("receiving data");
-    let str = decoder.decode(event.data, { stream: true });
-    str = str.replace(/<noscript/g, '<textarea style="display: none;" noscript-tag-blocker');
-    str = str.replace(/<\/noscript/g, '</textarea');
-    filter.write(encoder.encode(str));
-  }
+    filter.ondata = event => {
+      // console.log("receiving data");
+      let str = decoder.decode(event.data, { stream: true });
+      str = str.replace(/<noscript/g, '<textarea style="display: none;" noscript-tag-blocker');
+      str = str.replace(/<\/noscript/g, '</textarea');
+      filter.write(encoder.encode(str));
+    }
 
-  filter.onstop = event => {
-    // console.log("finished");
-    filter.disconnect();
+    filter.onstop = event => {
+      // console.log("finished");
+      filter.disconnect();
+    }
   }
 }
 
@@ -31,3 +34,14 @@ browser.webRequest.onBeforeRequest.addListener(
   },
   ["blocking",]
 );
+
+async function startup() {
+  // Check localStorage, and set default settings if empty
+  await checkStorage();
+
+  // Set icon based on `enabled` setting
+  let enabled = await getEnabled();
+  updateIcon(enabled);
+}
+
+startup();
