@@ -4,7 +4,7 @@
   "version": "0.9",
   "description": "Blocking <noscript> tags",
   "icons": {
-    "48": "icons/pen.svg"
+    "48": "icons/icon.svg"
   },
   "permissions": [
     "storage",
@@ -31,7 +31,7 @@
     "default_area": "navbar",
     "default_title": "noscript-tag-blocker",
     "default_icon": {
-      "64": "icons/pen.svg"
+      "64": "icons/icon.svg"
     }
   }
 }

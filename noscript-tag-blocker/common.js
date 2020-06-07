@@ -2,7 +2,7 @@
 Update icon based on value of `enabled`
 */
 async function updateIcon(enabled) {
-  browser.browserAction.setIcon({ path: enabled ? 'icons/pen_enabled.svg' : 'icons/pen_disabled.svg' });
+  browser.browserAction.setIcon({ path: enabled ? 'icons/icon_enabled.svg' : 'icons/icon_disabled.svg' });
 }
 
 /*
