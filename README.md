@@ -1,6 +1,16 @@
-# noscript-tag-blocker
+<h1 align="center">
+  <sub>
+    <img src="https://raw.githubusercontent.com/ggabarrin/noscript-tag-blocker/master/noscript-tag-blocker/icons/icon.svg" width="48" height="48" alt="icon">
+  </sub>
+  <sup>
+    noscript-tag-blocker
+  </sup>
+</h1>
+<p align="center">
+    A Firefox WebExtension for blocking &lt;noscript&gt; tags.
+</p>
 
-`noscript-tag-blocker` is a Firefox WebExtension for blocking <noscript> tags. 
+***
 
 **Note**: *This extension is built using the WebExtensions API for cross-browser compatibility. However, it currently uses the [webRequest.filterResponseData()](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/filterResponseData) function, which at moment is only supported by Firefox.*
 
@@ -36,7 +46,7 @@ In order to permanently install in Firefox, please follow this step:
 2. Go to `about:config` and set the `xpinstall.signatures.required` key to `false` (this will allow you to install unsigned extensions)
 3. Go to `about:addons`, click on the :gear: icon, and click on `Install Add-on From File...` option
 4. Select the zip file built before (located in the `noscript-tag-blocker/dist` directory)
-5. You should see a :fountain_pen: icon in your browser's toolbar
+5. You should see the extension's icon in your browser's toolbar
 
 ## Test 
 
