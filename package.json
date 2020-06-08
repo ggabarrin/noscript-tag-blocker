@@ -2,7 +2,7 @@
   "name": "noscript-tag-blocker",
   "private": true,
   "version": "0.9",
-  "description": "Browser WebExtension for blocking <noscript> tags",
+  "description": "Firefox WebExtension for blocking <noscript> tags",
   "scripts": {
     "lint": "eslint --cache .",
     "lint:fix": "yarn lint --fix",
@@ -13,7 +13,6 @@
     "type": "git",
     "url": "git+https://github.com/ggabarrin/noscript-tag-blocker.git"
   },
-  "author": "",
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/ggabarrin/noscript-tag-blocker/issues"
