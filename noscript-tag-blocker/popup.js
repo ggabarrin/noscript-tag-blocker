@@ -26,7 +26,9 @@ async function load() {
   await updateIcon(enabled);
 
   // Add event on feature toggle
-  document.getElementById('enabledCheckbox').addEventListener('click', featureToogle, false);
+  document
+    .getElementById('enabledCheckbox')
+    .addEventListener('click', featureToogle, false);
 }
 
 document.addEventListener('DOMContentLoaded', load, false);
