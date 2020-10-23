@@ -9,9 +9,9 @@ async function updateCheckbox(enabled) {
 Change value of `enabled` and udpate checkbox and icon accordingly
 */
 async function featureToogle() {
-  let enabled = !(await getEnabled());
-  browser.storage.local.set({ enabled });
+  const enabled = !(await getEnabled());
 
+  browser.storage.local.set({ enabled });
   await updateCheckbox(enabled);
   await updateIcon(enabled);
 }
@@ -20,7 +20,7 @@ async function featureToogle() {
 On load, retrieve settings, and set icon and toggle.
 */
 async function load() {
-  let enabled = await getEnabled();
+  const enabled = await getEnabled();
 
   await updateCheckbox(enabled);
   await updateIcon(enabled);

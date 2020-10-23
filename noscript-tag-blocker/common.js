@@ -11,19 +11,20 @@ async function updateIcon(enabled) {
 Get value of the `enabled` key from localStorage
 */
 async function getEnabled() {
-  let value = await browser.storage.local.get('enabled');
-  enabled = value.enabled;
-  return enabled;
+  return browser.storage.local.get('enabled').then((storedObject) => {
+    return storedObject.enabled;
+  });
 }
 
 /*
 Check localStorage, and set default settings if empty
 */
 async function checkStorage() {
-  const gettingStoredSettings = browser.storage.local.get();
-  await gettingStoredSettings.then(function (storedSettings) {
-    if (!storedSettings.enabled) {
-      browser.storage.local.set({ enabled: true });
+  return browser.storage.local.get().then((storedObject) => {
+    if (storedObject.enabled !== undefined) {
+      return Promise.resolve();
     }
+
+    return browser.storage.local.set({ enabled: true });
   });
 }

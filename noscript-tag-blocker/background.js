@@ -1,9 +1,8 @@
 async function listener(details) {
-  let enabled = await getEnabled();
-  if (enabled) {
-    let filter = browser.webRequest.filterResponseData(details.requestId);
-    let decoder = new TextDecoder('utf-8');
-    let encoder = new TextEncoder();
+  if (await getEnabled()) {
+    const filter = browser.webRequest.filterResponseData(details.requestId);
+    const decoder = new TextDecoder('utf-8');
+    const encoder = new TextEncoder();
 
     let blockedTags = 0;
 
@@ -58,8 +57,7 @@ async function startup() {
   await checkStorage();
 
   // Set icon based on `enabled` setting
-  let enabled = await getEnabled();
-  updateIcon(enabled);
+  updateIcon(await getEnabled());
 }
 
 startup();
