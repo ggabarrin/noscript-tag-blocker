@@ -60,6 +60,9 @@ typings/
 # next.js build output
 .next
 
+# macOS Desktop Services Store files
+**/.DS_Store
+
 # dist build directory
 noscript-tag-blocker/dist
 
