@@ -1,36 +1,36 @@
 async function listener(details) {
   if (await getEnabled()) {
     const filter = browser.webRequest.filterResponseData(details.requestId);
-    const decoder = new TextDecoder('utf-8');
     const encoder = new TextEncoder();
 
-    let blockedTags = 0;
-
-    filter.onstart = (event) => {
-      // console.log("started");
-    };
+    let data = [];
 
     filter.ondata = (event) => {
-      // console.log("receiving data");
-      let str = decoder.decode(event.data, { stream: true });
-
-      // replace tags
-      str = str.replace(
-        /<noscript/g,
-        '<textarea style="display: none;" noscript-tag-blocker',
-      );
-      str = str.replace(/<\/noscript/g, '</textarea');
-
-      // count blocked tags
-      blockedTags +=
-        str.split('<textarea style="display: none;" noscript-tag-blocker').length - 1;
-
-      filter.write(encoder.encode(str));
+      data.push(event.data);
     };
 
-    filter.onstop = (event) => {
-      // console.log("finished");
-      filter.disconnect();
+    filter.onstop = async (event) => {
+      const blob = new Blob(data);
+      const text = await blob.text();
+
+      // do not apply any changes to data if it does not include a noscript tag
+      if (!text.match(/<noscript/g)) {
+        filter.write(await blob.arrayBuffer());
+        filter.close();
+        return;
+      }
+
+      // replace tags
+      const processedText = text
+        .replace(/<noscript/g, '<textarea style="display: none;" noscript-tag-blocker')
+        .replace(/<\/noscript/g, '</textarea');
+
+      // count blocked tags
+      const blockedTags =
+        processedText.split('<textarea style="display: none;" noscript-tag-blocker')
+          .length - 1;
+
+      filter.write(encoder.encode(processedText));
 
       // set badge text with number of blocked tags in the current tab
       if (blockedTags) {
@@ -39,6 +39,8 @@ async function listener(details) {
           tabId: details.tabId,
         });
       }
+
+      filter.close();
     };
   }
 }
