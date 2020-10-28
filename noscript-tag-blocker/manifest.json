@@ -12,8 +12,7 @@
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "{e8cca8a3-e8b2-4647-bc67-f7facca3d70a}",
-      "strict_min_version": "42.0"
+      "strict_min_version": "59.0"
     }
   },
   "incognito": "spanning",
