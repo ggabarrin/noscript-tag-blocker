@@ -22,8 +22,8 @@ async function listener(details) {
 
       // replace tags
       const processedText = text
-        .replace(/<noscript/g, '<textarea style="display: none;" noscript-tag-blocker')
-        .replace(/<\/noscript/g, '</textarea');
+        .replace(/<noscript/ig, '<textarea style="display: none;" noscript-tag-blocker')
+        .replace(/<\/noscript/ig, '</textarea');
 
       // count blocked tags
       const blockedTags =
