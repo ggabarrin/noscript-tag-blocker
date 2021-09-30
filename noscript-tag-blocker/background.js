@@ -22,12 +22,12 @@ async function listener(details) {
 
       // replace tags
       const processedText = text
-        .replace(/<noscript/ig, '<textarea style="display: none;" noscript-tag-blocker')
+        .replace(/<noscript/ig, '<textarea style="display: none !important;" noscript-tag-blocker')
         .replace(/<\/noscript/ig, '</textarea');
 
       // count blocked tags
       const blockedTags =
-        processedText.split('<textarea style="display: none;" noscript-tag-blocker')
+        processedText.split('<textarea style="display: none !important;" noscript-tag-blocker')
           .length - 1;
 
       filter.write(encoder.encode(processedText));
