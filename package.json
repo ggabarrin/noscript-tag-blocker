@@ -1,7 +1,7 @@
 {
   "name": "noscript-tag-blocker",
   "private": true,
-  "version": "1.1",
+  "version": "1.2",
   "description": "Firefox WebExtension for blocking <noscript> tags",
   "scripts": {
     "lint": "eslint --cache .",
