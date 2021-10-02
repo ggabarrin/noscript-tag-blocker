@@ -73,7 +73,7 @@ Specifically, it replaces the [<noscript>](https://www.w3schools.com/TAGs/tag_no
 ### Browser with noscript-tag-blocker
 
 ```html
-<textarea style="display: none;" noscript-tag-blocker="">
+<textarea style="display: none !important;" noscript-tag-blocker="">
     &lt;p&gt;This is a test&lt;/p&gt;
 </textarea>
 ```
