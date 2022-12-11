@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "noscript-tag-blocker",
-  "version": "1.2",
+  "version": "1.3",
   "description": "Blocking <noscript> tags",
   "icons": {
     "48": "icons/icon.svg"
